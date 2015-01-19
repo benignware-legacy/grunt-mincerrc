@@ -1,0 +1,5 @@
+--include public/.
+--include public/javascripts 
+--include public/stylesheets
+--output public/_assets 
+stylesheets/style.css javascripts/main.js

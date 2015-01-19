@@ -1,0 +1,20 @@
+{
+  "assets": {
+    "javascripts/main.js": "javascripts/main-cfef4399f2902f40d007049a2a2800f5.js",
+    "stylesheets/style.css": "stylesheets/style-c6530aec297aa79f32e27b610c2c5513.css"
+  },
+  "files": {
+    "javascripts/main-cfef4399f2902f40d007049a2a2800f5.js": {
+      "logical_path": "javascripts/main.js",
+      "mtime": "2015-01-18T14:48:28.000Z",
+      "size": 28,
+      "digest": "cfef4399f2902f40d007049a2a2800f5"
+    },
+    "stylesheets/style-c6530aec297aa79f32e27b610c2c5513.css": {
+      "logical_path": "stylesheets/style.css",
+      "mtime": "2015-01-18T12:58:57.000Z",
+      "size": 111,
+      "digest": "c6530aec297aa79f32e27b610c2c5513"
+    }
+  }
+}
