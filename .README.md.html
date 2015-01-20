@@ -491,15 +491,33 @@ function setDocumentScrollTop(ypos)
 <h4> <a id="user-content-optionsclean" class="anchor" href="#optionsclean" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.clean</h4> 
 <p>Type: <code>Boolean</code> Default value: <code>false</code></p> 
 <p>Specifies whether to clean output before build</p> 
+<h4> <a id="user-content-optionscompress" class="anchor" href="#optionscompress" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.compress</h4> 
+<p>Type: <code>Boolean</code> Default value: <code>false</code></p> 
+<p>Specifies whether to gzip assets.</p> 
+<h4> <a id="user-content-optionsembedmappingcomments" class="anchor" href="#optionsembedmappingcomments" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.embedMappingComments</h4> 
+<p>Type: <code>Boolean</code> Default value: <code>false</code></p> 
+<p>Specifies whether to embed source-map comments into the merged assets.</p> 
+<h4> <a id="user-content-optionsenable" class="anchor" href="#optionsenable" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.enable</h4> 
+<p>Type: <code>Array</code> Default value: <code>[]</code></p> 
+<p>An array containing features to be enabled in the environment</p> 
+<h4> <a id="user-content-optionsengines" class="anchor" href="#optionsengines" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.engines</h4> 
+<p>Type: <code>Object</code> Default value: <code>{}</code></p> 
+<p>An object containing configuration options for each of mincer's engines.</p> 
 <h4> <a id="user-content-optionsfiles" class="anchor" href="#optionsfiles" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.files</h4> 
 <p>Type: <code>Array</code> Default value: <code>[]</code></p> 
 <p>Environment files to be merged with .mincerrc specific files, such as <code>application.js</code>.</p> 
+<h4> <a id="user-content-optionshelpers" class="anchor" href="#optionshelpers" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.helpers</h4> 
+<p>Type: <code>Object</code> Default value: <code>{}</code></p> 
+<p>An object containing helper methods to be available during build.</p> 
 <h4> <a id="user-content-optionsinclude" class="anchor" href="#optionsinclude" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.include</h4> 
 <p>Type: <code>Array</code> Default value: <code>[]</code></p> 
 <p>Environment paths to be merged with .mincerrc specific paths.</p> 
 <h4> <a id="user-content-optionsoutput" class="anchor" href="#optionsoutput" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.output</h4> 
 <p>Type: <code>String</code> Default value: <code>''</code></p> 
 <p>Output path to override .mincerrc output path.</p> 
+<h4> <a id="user-content-optionssourcemaps" class="anchor" href="#optionssourcemaps" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.sourceMaps</h4> 
+<p>Type: <code>Boolean</code> Default value: <code>false</code></p> 
+<p>Specifies whether to compile source-maps. When set, the corresponding environment-feature is auto-enabled.</p> 
 <h3> <a id="user-content-usage-examples" class="anchor" href="#usage-examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage Examples</h3> 
 <h4> <a id="user-content-default-options" class="anchor" href="#default-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default Options</h4> 
 <p>Provide paths to .mincerrc-files</p> 
@@ -516,9 +534,48 @@ function setDocumentScrollTop(ypos)
   }
 });</pre>
 </div> 
+<h4> <a id="user-content-custom-options" class="anchor" href="#custom-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Options</h4> 
+<p>Apply custom options to .mincerrc builds</p> 
+<div class="highlight highlight-js">
+ <pre>grunt.initConfig({
+  mincerrc<span class="pl-k">:</span> {
+    custom_options<span class="pl-k">:</span> {
+        options<span class="pl-k">:</span> {
+          clean<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+          enable<span class="pl-k">:</span> [
+            <span class="pl-s1"><span class="pl-pds">'</span>autoprefixer<span class="pl-pds">'</span></span>
+          ],
+          engines<span class="pl-k">:</span> {
+            Coffee<span class="pl-k">:</span> {
+              bare<span class="pl-k">:</span> <span class="pl-c1">true</span>
+            }
+          },
+          helpers<span class="pl-k">:</span> {
+            <span class="pl-en">asset_path</span>: <span class="pl-st">function</span>(<span class="pl-vpf">logicalPath</span>) {
+              <span class="pl-s">var</span>
+                base <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">'</span>public/_assets/<span class="pl-pds">'</span></span>,
+                asset <span class="pl-k">=</span> <span class="pl-v">this</span>.findAsset(logicalPath);
+              <span class="pl-k">if</span> (asset) {
+                <span class="pl-k">return</span> base <span class="pl-k">+</span> asset.digestPath;
+              }
+              <span class="pl-k">return</span> base <span class="pl-k">+</span> logicalPath;
+            }
+          },
+          jsCompressor<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>uglify<span class="pl-pds">'</span></span>,
+          cssCompressor<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>csswring<span class="pl-pds">'</span></span>,
+          sourceMaps<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+          embedMappingComments<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+          compress<span class="pl-k">:</span> <span class="pl-c1">true</span>
+        },
+        cwd<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>tmp/custom_options<span class="pl-pds">'</span></span>,
+        src<span class="pl-k">:</span> [<span class="pl-s1"><span class="pl-pds">'</span>**/.mincerrc<span class="pl-pds">'</span></span>]
+      }
+  }
+});</pre>
+</div> 
 <h2> <a id="user-content-contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2> 
 <p>In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using <a href="http://gruntjs.com/">Grunt</a>.</p> 
 <h2> <a id="user-content-release-history" class="anchor" href="#release-history" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release History</h2> 
-<p><em>(Nothing yet)</em></p>
+<p>v0.0.2 - Added custom options </p>
 </body>
 </html>

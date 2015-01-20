@@ -28,12 +28,12 @@ module.exports = function(grunt) {
       tests: ['tmp']
     },
     copy: {
-      default_options: {
+      test: {
         dot: true,
         expand: true,
-        cwd: 'test/fixtures/default_options',
+        cwd: 'test/fixtures',
         src: '**/*',
-        dest: 'tmp/default_options'
+        dest: 'tmp'
       }
     },
     // Configuration to be run (and then tested).
@@ -43,6 +43,37 @@ module.exports = function(grunt) {
           clean: true
         },
         cwd: 'tmp/default_options',
+        src: ['**/.mincerrc']
+      },
+      custom_options: {
+        options: {
+          clean: true,
+          enable: [
+            'autoprefixer'
+          ],
+          engines: {
+            Coffee: {
+              bare: true
+            }
+          },
+          helpers: {
+            asset_path: function(logicalPath) {
+              var
+                base = 'public/_assets/',
+                asset = this.findAsset(logicalPath);
+              if (asset) {
+                return base + asset.digestPath;
+              }
+              return base + logicalPath;
+            }
+          },
+          jsCompressor: 'uglify',
+          cssCompressor: 'csswring',
+          sourceMaps: true,
+          embedMappingComments: true,
+          compress: true
+        },
+        cwd: 'tmp/custom_options',
         src: ['**/.mincerrc']
       }
     },

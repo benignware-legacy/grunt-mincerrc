@@ -31,7 +31,13 @@ module.exports = function(grunt) {
     var options = this.options({
       include: [],
       output: "",
-      files: []
+      files: [],
+      engines: {},
+      helpers: {},
+      enable: [],
+      sourceMaps: false,
+      embedMappingComments: false,
+      compress: false
     });
     
     var data = this.data;
@@ -43,15 +49,14 @@ module.exports = function(grunt) {
       var file = data.cwd ? path.join(data.cwd, filepath) : filepath;
       var dir = path.dirname(file);
       var opts = merge(options, cliopts(grunt.file.read(file)));
-
+      
       // Compile manifest
-      console.log(chalk.reset(chalk.cyan("Compiling " + file + "...")));
+      console.log(chalk.green("Compiling " + chalk.cyan(file) + "..."));
       build(dir, opts);
       
     });
     
-    // Reset cwd
-    process.chdir(root);
+    
     
   });
 

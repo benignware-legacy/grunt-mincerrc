@@ -33,5 +33,12 @@ exports.mincerrc = {
     var expected = grunt.file.read('test/expected/default_options/app/public/_assets/manifest.json');
     test.equal(actual, expected, 'should match expecpted results.');
     test.done();
+  },
+  custom_options: function(test) {
+    test.expect(1);
+    var actual = grunt.file.read('tmp/custom_options/app/public/_assets/manifest.json');
+    var expected = grunt.file.read('test/expected/custom_options/app/public/_assets/manifest.json');
+    test.equal(actual, expected, 'should match expecpted results.');
+    test.done();
   }
 };
