@@ -23,7 +23,7 @@ module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('mincerrc', 'Compile mince     rrc-projects', function() {
+  grunt.registerMultiTask('mincerrc', 'Run Mincer by .mincerrc files', function() {
     
     var root = process.cwd();
     
@@ -45,8 +45,7 @@ module.exports = function(grunt) {
       var opts = merge(options, cliopts(grunt.file.read(file)));
 
       // Compile manifest
-      //console.log(chalk.reset(chalk.cyan("Compiling " + file + "...")));
-      process.chdir(dir);
+      console.log(chalk.reset(chalk.cyan("Compiling " + file + "...")));
       build(dir, opts);
       
     });
