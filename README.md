@@ -51,6 +51,12 @@ Default value: `false`
 
 Specifies whether to gzip assets.
 
+#### options.digest
+Type: `Boolean`
+Default value: `true`
+
+Specifies whether to include a digest identifier in filenames. 
+
 #### options.embedMappingComments
 Type: `Boolean`
 Default value: `false`
@@ -86,6 +92,13 @@ Type: `Array`
 Default value: `[]`
 
 Environment paths to be merged with .mincerrc specific paths.
+
+#### options.manifest
+Type: `String`
+Default value: `'manifest.json'`
+
+Specifies the filename of json manifest. Set to false if no manifest should be written at all.
+
 #### options.output
 Type: `String`
 Default value: `''`
@@ -163,4 +176,7 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+v0.0.3 - Added manifest and digest options, allowing for building assets to their logical path and without manifest. Build from environment files such as `application.js` in addition to `.mincerrc`-files. 
+
+
 v0.0.2 - Added custom options 
