@@ -70,7 +70,7 @@ module.exports = function(grunt) {
           jsCompressor: 'uglify',
           cssCompressor: 'csswring',
           sourceMaps: true,
-          embedMappingComments: true,
+          embedMappingComments: false,
           compress: true
         },
         cwd: 'tmp/custom_options',

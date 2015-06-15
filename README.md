@@ -176,7 +176,8 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-v0.0.3 - Added manifest and digest options, allowing for building assets to their logical path and without manifest. Build from environment files such as `application.js` in addition to `.mincerrc`-files. 
+v0.0.4 - Fixed missing packages, Fixed tests
 
+v0.0.3 - Added manifest and digest options, allowing for building assets to their logical path and without manifest. Build from environment files such as `application.js` in addition to `.mincerrc`-files. 
 
 v0.0.2 - Added custom options 

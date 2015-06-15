@@ -1,20 +1,20 @@
 {
   "assets": {
-    "javascripts/main.js": "javascripts/main-9b78cc6dc0b720d6c254f6b6fc4f91da.js",
-    "stylesheets/style.css": "stylesheets/style-b26ef053247e2843227c40e340331a59.css"
+    "javascripts/main.js": "javascripts/main-19be31a26b353f37c4a0d6990a85b984.js",
+    "stylesheets/style.css": "stylesheets/style-022c56023f5678a76c102686b532dd1c.css"
   },
   "files": {
-    "javascripts/main-9b78cc6dc0b720d6c254f6b6fc4f91da.js": {
+    "javascripts/main-19be31a26b353f37c4a0d6990a85b984.js": {
       "logical_path": "javascripts/main.js",
-      "mtime": "2015-01-20T11:27:30.000Z",
-      "size": 84353,
-      "digest": "9b78cc6dc0b720d6c254f6b6fc4f91da"
+      "mtime": "2015-06-04T16:43:40.000Z",
+      "size": 84386,
+      "digest": "19be31a26b353f37c4a0d6990a85b984"
     },
-    "stylesheets/style-b26ef053247e2843227c40e340331a59.css": {
+    "stylesheets/style-022c56023f5678a76c102686b532dd1c.css": {
       "logical_path": "stylesheets/style.css",
-      "mtime": "2015-01-20T11:31:09.000Z",
+      "mtime": "2015-06-04T16:43:40.000Z",
       "size": 153,
-      "digest": "b26ef053247e2843227c40e340331a59"
+      "digest": "022c56023f5678a76c102686b532dd1c"
     }
   }
 }

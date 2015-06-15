@@ -1,2 +1,0 @@
-)]}'
-{"version":3,"sources":["public/stylesheets/style.css.scss"],"names":[],"mappings":"AAAA,KACA,aACA,CADA,oDACA,AAEA,CAFA,CAGA,cAAA,AAEA,CAFA,CAGA,wCAAA,CAAA,uBAAA,CAAA","file":"style.css.scss","sourcesContent":["body {\n  padding: 50px;\n  font: 14px \"Lucida Grande\", Helvetica, Arial, sans-serif; }\n\na {\n  color: #00B7FF; }\n\na {\n  transition: transform 1s; }\n"],"sourceRoot":"/"}
