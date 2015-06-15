@@ -1,7 +1,7 @@
 {
   "name": "grunt-mincerrc",
   "description": "Run Mincer by .mincerrc files",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/rafaelnowrotek/grunt-mincerrc",
   "author": {
     "name": "Rafael Nowrotek",

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>/Users/rafaelnowrotek/Documents/Projekte/Grunt-Plugins/grunt-mincerrc/.README.md.html</title>
+<title>/Users/rafaelnowrotek/Documents/Projekte/Magnet/Workspace/grunt-mincerrc/.README.md.html</title>
 
 
 <style type="text/css">
@@ -470,7 +470,7 @@ function setDocumentScrollTop(ypos)
 </div> 
 <p>Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:</p> 
 <div class="highlight highlight-js">
- <pre>grunt.loadNpmTasks(<span class="pl-s1"><span class="pl-pds">'</span>grunt-mincerrc<span class="pl-pds">'</span></span>);</pre>
+ <pre>grunt.loadNpmTasks(<span class="pl-s"><span class="pl-pds">'</span>grunt-mincerrc<span class="pl-pds">'</span></span>);</pre>
 </div> 
 <h2> <a id="user-content-the-mincerrc-task" class="anchor" href="#the-mincerrc-task" aria-hidden="true"><span class="octicon octicon-link"></span></a>The &quot;mincerrc&quot; task</h2> 
 <h3> <a id="user-content-overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h3> 
@@ -494,6 +494,9 @@ function setDocumentScrollTop(ypos)
 <h4> <a id="user-content-optionscompress" class="anchor" href="#optionscompress" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.compress</h4> 
 <p>Type: <code>Boolean</code> Default value: <code>false</code></p> 
 <p>Specifies whether to gzip assets.</p> 
+<h4> <a id="user-content-optionsdigest" class="anchor" href="#optionsdigest" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.digest</h4> 
+<p>Type: <code>Boolean</code> Default value: <code>true</code></p> 
+<p>Specifies whether to include a digest identifier in filenames. </p> 
 <h4> <a id="user-content-optionsembedmappingcomments" class="anchor" href="#optionsembedmappingcomments" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.embedMappingComments</h4> 
 <p>Type: <code>Boolean</code> Default value: <code>false</code></p> 
 <p>Specifies whether to embed source-map comments into the merged assets.</p> 
@@ -512,6 +515,9 @@ function setDocumentScrollTop(ypos)
 <h4> <a id="user-content-optionsinclude" class="anchor" href="#optionsinclude" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.include</h4> 
 <p>Type: <code>Array</code> Default value: <code>[]</code></p> 
 <p>Environment paths to be merged with .mincerrc specific paths.</p> 
+<h4> <a id="user-content-optionsmanifest" class="anchor" href="#optionsmanifest" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.manifest</h4> 
+<p>Type: <code>String</code> Default value: <code>'manifest.json'</code></p> 
+<p>Specifies the filename of json manifest. Set to false if no manifest should be written at all.</p> 
 <h4> <a id="user-content-optionsoutput" class="anchor" href="#optionsoutput" aria-hidden="true"><span class="octicon octicon-link"></span></a>options.output</h4> 
 <p>Type: <code>String</code> Default value: <code>''</code></p> 
 <p>Output path to override .mincerrc output path.</p> 
@@ -528,8 +534,8 @@ function setDocumentScrollTop(ypos)
       options<span class="pl-k">:</span> {
         clean<span class="pl-k">:</span> <span class="pl-c1">true</span>
       },
-      cwd<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>app<span class="pl-pds">'</span></span>,
-      src<span class="pl-k">:</span> [<span class="pl-s1"><span class="pl-pds">'</span>**/.mincerrc<span class="pl-pds">'</span></span>]
+      cwd<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>app<span class="pl-pds">'</span></span>,
+      src<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>**/.mincerrc<span class="pl-pds">'</span></span>]
     }
   }
 });</pre>
@@ -543,7 +549,7 @@ function setDocumentScrollTop(ypos)
         options<span class="pl-k">:</span> {
           clean<span class="pl-k">:</span> <span class="pl-c1">true</span>,
           enable<span class="pl-k">:</span> [
-            <span class="pl-s1"><span class="pl-pds">'</span>autoprefixer<span class="pl-pds">'</span></span>
+            <span class="pl-s"><span class="pl-pds">'</span>autoprefixer<span class="pl-pds">'</span></span>
           ],
           engines<span class="pl-k">:</span> {
             Coffee<span class="pl-k">:</span> {
@@ -551,9 +557,9 @@ function setDocumentScrollTop(ypos)
             }
           },
           helpers<span class="pl-k">:</span> {
-            <span class="pl-en">asset_path</span>: <span class="pl-st">function</span>(<span class="pl-vpf">logicalPath</span>) {
-              <span class="pl-s">var</span>
-                base <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">'</span>public/_assets/<span class="pl-pds">'</span></span>,
+            <span class="pl-en">asset_path</span>: <span class="pl-k">function</span>(<span class="pl-smi">logicalPath</span>) {
+              <span class="pl-k">var</span>
+                base <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>public/_assets/<span class="pl-pds">'</span></span>,
                 asset <span class="pl-k">=</span> <span class="pl-v">this</span>.findAsset(logicalPath);
               <span class="pl-k">if</span> (asset) {
                 <span class="pl-k">return</span> base <span class="pl-k">+</span> asset.digestPath;
@@ -561,14 +567,14 @@ function setDocumentScrollTop(ypos)
               <span class="pl-k">return</span> base <span class="pl-k">+</span> logicalPath;
             }
           },
-          jsCompressor<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>uglify<span class="pl-pds">'</span></span>,
-          cssCompressor<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>csswring<span class="pl-pds">'</span></span>,
+          jsCompressor<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>uglify<span class="pl-pds">'</span></span>,
+          cssCompressor<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>csswring<span class="pl-pds">'</span></span>,
           sourceMaps<span class="pl-k">:</span> <span class="pl-c1">true</span>,
           embedMappingComments<span class="pl-k">:</span> <span class="pl-c1">true</span>,
           compress<span class="pl-k">:</span> <span class="pl-c1">true</span>
         },
-        cwd<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>tmp/custom_options<span class="pl-pds">'</span></span>,
-        src<span class="pl-k">:</span> [<span class="pl-s1"><span class="pl-pds">'</span>**/.mincerrc<span class="pl-pds">'</span></span>]
+        cwd<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>tmp/custom_options<span class="pl-pds">'</span></span>,
+        src<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>**/.mincerrc<span class="pl-pds">'</span></span>]
       }
   }
 });</pre>
@@ -576,6 +582,7 @@ function setDocumentScrollTop(ypos)
 <h2> <a id="user-content-contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2> 
 <p>In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using <a href="http://gruntjs.com/">Grunt</a>.</p> 
 <h2> <a id="user-content-release-history" class="anchor" href="#release-history" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release History</h2> 
+<p>v0.0.3 - Added manifest and digest options, allowing for building assets to their logical path and without manifest. Build from environment files such as <code>application.js</code> in addition to <code>.mincerrc</code>-files. </p> 
 <p>v0.0.2 - Added custom options </p>
 </body>
 </html>
