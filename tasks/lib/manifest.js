@@ -60,6 +60,8 @@ Manifest.prototype.compile = function (files, options) {
   
   files.forEach(function (file) {
     
+    file = path.resolve(file);
+    
     var
       asset = environment.findAsset(file),
       assetPath = findAssetPath(asset, options),
